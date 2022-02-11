@@ -14,7 +14,7 @@ use App\Http\Controllers\PeliculaController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::apiResource("/peliculas", PeliculaController::class);
