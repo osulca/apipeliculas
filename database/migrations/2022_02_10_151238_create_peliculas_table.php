@@ -16,7 +16,7 @@ class CreatePeliculasTable extends Migration
         Schema::create('peliculas', function (Blueprint $table) {
             $table->id();
             $table->string("titulo");
-            $table->integer("año");
+            $table->integer("ño");
             $table->string("genero");
         });
     }

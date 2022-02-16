@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PeliculaController;
+use App\Http\Controllers\UsuarioController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,7 +15,10 @@ use App\Http\Controllers\PeliculaController;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('subir');
 });
+Route::post("/subir", [PeliculaController::class, "upload"]);
+Route::get("/login", [UsuarioController::class, "mostrarFormulario"]);
+Route::post("/login", [UsuarioController::class, "login"]);
 
 Route::apiResource("/peliculas", PeliculaController::class);

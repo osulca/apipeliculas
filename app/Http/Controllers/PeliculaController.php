@@ -20,6 +20,19 @@ class PeliculaController extends Controller
         return response($result, 201);
     }
 
+    public function upload(Request $request){
+        $campos = $request->validate([
+            "archivo" => "required|file|mimes:jpg,bmp,png",
+        ]);
+
+        $archivo = $request->file("archivo")->getClientOriginalName();
+        $request->file("archivo")->storeAs("imagenes", $archivo);
+        return response([
+                "mensaje"=>"archivo guardado",
+                "url"=>asset("/imagenes/".$archivo)
+            ]
+            ,200);
+    }
     /**
      * Show the form for creating a new resource.
      *
